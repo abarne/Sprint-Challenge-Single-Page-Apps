@@ -70,10 +70,16 @@ const FormikSearchForm = withFormik({
 	handleSubmit(values, { setStatus }) {
 		console.log(values);
 		axios
-			.get(`https://rickandmortyapi.com/api/character/${values.name}`)
+			.get(`https://rickandmortyapi.com/api/character/`)
 			.then((response) => {
-				console.log(response);
-				setStatus(response.data);
+				console.log('response', response);
+				response.data.results.forEach((item) => {
+					if (item.name.includes(values.name)) {
+						setStatus(item);
+					}
+				});
+
+				//setStatus(response.data);
 			})
 			.catch((error) => {
 				console.log('the data was not displayed', error);
