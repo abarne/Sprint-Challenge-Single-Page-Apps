@@ -24,12 +24,12 @@ const Search = styled.div`
 `;
 
 const SearchForm = ({ values, errors, touched, status }) => {
-	const [ character, setCharacter ] = useState({ name: 'Search to display character info' });
+	const [ character, setCharacter ] = useState([]);
 
 	useEffect(
 		() => {
 			if (status) {
-				setCharacter(status);
+				setCharacter([ ...character, status ]);
 			}
 		},
 		[ status ]
@@ -50,12 +50,14 @@ const SearchForm = ({ values, errors, touched, status }) => {
 			</div>
 
 			<Container>
-				<Card>
-					<h4>{character.name}</h4>
-					<h5> {character.status} </h5>
-					<h5> {character.species} </h5>
-					<h5> {character.gender}</h5>
-				</Card>
+				{character.map((character) => (
+					<Card>
+						<h4>{character.name}</h4>
+						<h5> {character.status} </h5>
+						<h5> {character.species} </h5>
+						<h5> {character.gender}</h5>
+					</Card>
+				))}
 			</Container>
 		</div>
 	);
