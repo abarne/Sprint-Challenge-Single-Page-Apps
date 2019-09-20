@@ -41,6 +41,7 @@ export default function CharacterList() {
 					<h4>{item.name}</h4>
 					<h5>{item.status}</h5>
 					<h5>{item.species}</h5>
+					<h5>{item.gender}</h5>
 				</Card>
 			))}
 		</Container>
