@@ -13,6 +13,8 @@ const Container = styled.div`
 const Card = styled.div`
 	width: 100px;
 	border: 1px solid black;
+	background: red;
+	color: white;
 `;
 const Search = styled.div`
 	display: flex;
@@ -22,7 +24,7 @@ const Search = styled.div`
 `;
 
 const SearchForm = ({ values, errors, touched, status }) => {
-	const [ character, setCharacter ] = useState([]);
+	const [ character, setCharacter ] = useState({ name: 'Search to display character info' });
 
 	useEffect(
 		() => {

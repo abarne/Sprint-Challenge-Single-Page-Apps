@@ -15,6 +15,8 @@ export default function CharacterList() {
 	const Card = styled.div`
 		width: 100px;
 		border: 1px solid black;
+		background: red;
+		color: white;
 	`;
 
 	useEffect(
